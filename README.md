@@ -79,3 +79,5 @@ This first release uses a continuous Fabric surface rather than visual section v
 ## Static deployment
 
 Run `npm run build` and publish `dist/` to Netlify, Cloudflare Pages, GitHub Pages or any static host. No backend or environment variables are required. Configure unknown routes to return `index.html` if a host requires an SPA fallback.
+
+The included GitHub Pages workflow verifies type checking, linting, unit tests and the production build before uploading `dist/`. Vite uses `/Webtoon-tools/` as its production base path, so repository Pages assets resolve correctly. In the repository settings, select **GitHub Actions** as the Pages source; pushes to `main` then deploy automatically, while the workflow can also be started manually.
