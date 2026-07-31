@@ -1,0 +1,2 @@
+import type {ExportSlice} from '../types';
+export function planSlices(totalHeight:number,sliceHeight:number,base='episode-01',ext='png'):ExportSlice[]{if(totalHeight<=0||sliceHeight<=0)throw new Error('Dimensions must be positive');const count=Math.ceil(totalHeight/sliceHeight);return Array.from({length:count},(_,i)=>({index:i+1,y:i*sliceHeight,height:Math.min(sliceHeight,totalHeight-i*sliceHeight),filename:`${base}-${String(i+1).padStart(3,'0')}.${ext}`}))}

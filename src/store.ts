@@ -1,0 +1,3 @@
+import {create} from 'zustand';import type {LayerInfo,Tool} from './types';
+interface State{tool:Tool;zoom:number;selected:string[];layers:LayerInfo[];dirty:boolean;autosaved:string|null;busy:boolean;setTool:(t:Tool)=>void;setZoom:(z:number)=>void;setSelected:(ids:string[])=>void;setLayers:(x:LayerInfo[])=>void;setDirty:(x:boolean)=>void;setAutosaved:(x:string)=>void;setBusy:(x:boolean)=>void}
+export const useEditor=create<State>(set=>({tool:'select',zoom:.25,selected:[],layers:[],dirty:false,autosaved:null,busy:false,setTool:tool=>set({tool}),setZoom:zoom=>set({zoom}),setSelected:selected=>set({selected}),setLayers:layers=>set({layers}),setDirty:dirty=>set({dirty}),setAutosaved:autosaved=>set({autosaved}),setBusy:busy=>set({busy})}));
