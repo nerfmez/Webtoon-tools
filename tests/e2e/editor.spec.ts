@@ -7,15 +7,15 @@ test('iPad rail switches visual tools and dismisses palettes from the canvas',as
   await expect(page.getByLabel('Canvas zoom')).toBeVisible();
   await expect(page.getByRole('navigation',{name:'iPad tools'})).toHaveCSS('flex-direction','column');
   await page.getByRole('button',{name:'Panels',exact:true}).click();
-  await expect(page.getByRole('region',{name:'Tool options'})).toHaveClass(/open/);
+  await expect(page.locator('.asset-panel')).toHaveClass(/open/);
   await expect(page.locator('.panel-square')).toBeVisible();
   await expect(page.getByLabel('Close tool options',{exact:true})).toBeHidden();
   await page.locator('.workspace').click({position:{x:700,y:300}});
-  await expect(page.getByRole('region',{name:'Tool options'})).not.toHaveClass(/open/);
+  await expect(page.locator('.asset-panel')).not.toHaveClass(/open/);
   await page.getByRole('button',{name:'Panels',exact:true}).click();
   await page.getByLabel('Panel corner radius').fill('0');
   await page.getByRole('button',{name:/Square/}).click();
-  await expect(page.getByRole('region',{name:'Tool options'})).not.toHaveClass(/open/);
+  await expect(page.locator('.asset-panel')).not.toHaveClass(/open/);
   await page.getByRole('button',{name:'Layers',exact:true}).click();
   await expect(page.locator('.inspector')).toHaveClass(/open/);
   await expect(page.getByText('Square Panel')).toBeVisible();
@@ -27,7 +27,7 @@ test('the empty page pans with one finger and effects show visual previews',asyn
   expect(scrollTop).toBeGreaterThan(250);
   await page.getByRole('button',{name:'Move',exact:true}).click();
   await expect(page.locator('.workspace')).toHaveClass(/panning/);
-  await expect(page.getByRole('region',{name:'Tool options'})).not.toHaveClass(/open/);
+  await expect(page.locator('.asset-panel')).not.toHaveClass(/open/);
   await page.getByRole('button',{name:'Effects',exact:true}).click();
   await expect(page.locator('.effect-focus')).toBeVisible();
   await expect(page.locator('.effect-speed')).toBeVisible();
