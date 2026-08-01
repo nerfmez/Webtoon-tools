@@ -11,8 +11,10 @@ export function pinchZoom(startZoom:number,startDistance:number,currentDistance:
 
 export function translateFromGesture(transform:number[],start:TouchPoint,current:TouchPoint,zoom:number){
   const next=[...transform];
+  const startZoom=transform[0]||1;
+  const ratio=zoom/startZoom;
   next[0]=zoom;next[3]=zoom;
-  next[4]=(transform[4]??0)+current.x-start.x;
-  next[5]=(transform[5]??0)+current.y-start.y;
+  next[4]=current.x-(start.x-(transform[4]??0))*ratio;
+  next[5]=current.y-(start.y-(transform[5]??0))*ratio;
   return next;
 }
