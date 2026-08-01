@@ -35,3 +35,8 @@
  .workspace{grid-column:2;padding:20px 14px}
  .load{right:70px}
 }
+
+/* Subtle, non-exported alignment aids for composition work. */
+.canvas-shadow.show-grid:after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(#72809b30 1px,transparent 1px),linear-gradient(90deg,#72809b30 1px,transparent 1px);background-size:50px 50px}
+.props label.switch{flex-direction:row;align-items:center;font-size:12px;padding:9px 0;border-bottom:1px solid #30333c}
+.props label.switch input{width:16px}.props label.switch svg{width:16px}
