@@ -9,6 +9,10 @@ export function pinchZoom(startZoom:number,startDistance:number,currentDistance:
   return Math.max(min,Math.min(max,startZoom*(currentDistance/startDistance)));
 }
 
+export function panScroll(start:{left:number;top:number},startPoint:TouchPoint,currentPoint:TouchPoint){
+  return{left:start.left+startPoint.x-currentPoint.x,top:start.top+startPoint.y-currentPoint.y};
+}
+
 export function translateFromGesture(transform:number[],start:TouchPoint,current:TouchPoint,zoom:number){
   const next=[...transform];
   const startZoom=transform[0]||1;
