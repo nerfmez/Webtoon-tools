@@ -33,7 +33,7 @@ test('the empty page pans with one finger and effects show visual previews',asyn
   await expect(page.locator('.effect-speed')).toBeVisible();
   await page.getByRole('button',{name:/Focus lines/}).click();
   await page.getByRole('button',{name:'Layers',exact:true}).click();
-  await expect(page.getByText('Focus Lines')).toBeVisible();
+  await expect(page.getByText('Focus Lines',{exact:true})).toBeVisible();
 });
 
 test('pinch zoom continues into a one-finger page pan',async({page})=>{
