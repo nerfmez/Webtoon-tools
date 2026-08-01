@@ -29,3 +29,7 @@ jobs:
         run: npm test
       - name: Production build
         run: npm run build
+      - name: Install Playwright WebKit
+        run: npx playwright install --with-deps webkit
+      - name: iPad Safari interaction tests
+        run: npm run test:e2e
