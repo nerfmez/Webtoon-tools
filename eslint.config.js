@@ -5,7 +5,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['dist', 'public/tunnel-crew/**'],
+    ignores: ['dist', 'public/tunnel-crew/**', 'public/tunnel-crew-v07/**'],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
